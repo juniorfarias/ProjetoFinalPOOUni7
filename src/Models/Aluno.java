@@ -28,5 +28,7 @@ public class Aluno {
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
-	
+	public void showAluno() {
+		System.out.println("| Nome: " + this.getNome() + " | CPF: " + this.getCpf()  + " | Matricula: " + this.getMatricula() + " |");
+	}
 }

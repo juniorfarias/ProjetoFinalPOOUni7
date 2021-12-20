@@ -85,6 +85,25 @@ public class Main {
 				}
 				case 3: {
 					MainUtils.menuAluno();
+					opcao = input.nextInt();
+					switch (opcao) {
+						case 1: {
+							for(Aluno aluno : alunos) {
+								aluno.showAluno();
+							}
+							break;
+						}
+						case 2: {
+							String lNome = input.next();
+							String lCpf = input.next();
+							int lMatricula = input.nextInt();
+							alunos.add(new Aluno(lNome, lCpf, lMatricula));
+							break;
+						}
+						default: {
+							break;
+						}
+					}
 					break;
 				}
 				case 4: {
