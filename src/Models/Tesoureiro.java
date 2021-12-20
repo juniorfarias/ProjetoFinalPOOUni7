@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Date;
-
 public class Tesoureiro extends Funcionario {
 
 	public Tesoureiro(String nome, String dataAdmissao, double salario, String dataNascimento) {

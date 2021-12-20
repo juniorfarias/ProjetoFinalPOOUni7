@@ -2,12 +2,12 @@ package models;
 
 public class Turma {
 	private String nome;
-	private Professor professorResponsavel;
+	private Funcionario professorResponsavel;
 	private Curso curso;
-	public Turma(String nome, Professor professorResponsavel, Curso curso) {
+	public Turma(String nome, Funcionario professor, Curso curso) {
 		super();
 		this.nome = nome;
-		this.professorResponsavel = professorResponsavel;
+		this.professorResponsavel = professor;
 		this.curso = curso;
 	}
 	public Curso getCurso() {
@@ -22,11 +22,15 @@ public class Turma {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Professor getProfessorResponsavel() {
+	public Funcionario getProfessorResponsavel() {
 		return professorResponsavel;
 	}
-	public void setProfessorResponsavel(Professor professorResponsavel) {
+	public void setProfessorResponsavel(Funcionario professorResponsavel) {
 		this.professorResponsavel = professorResponsavel;
+	}
+	public void showTurma() {
+		System.out.println("| Nome: " + this.getNome() + " | Professor Responsavel: " + this.professorResponsavel.getNome() 
+		+ " | Curso: " + this.curso.getNome() + " |");
 	}
 	
 }

@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Date;
-
 public class AnalistaDeSistemas extends Funcionario {
 	private String linguagemDeProgramacao;
 	private String ideFavorita;

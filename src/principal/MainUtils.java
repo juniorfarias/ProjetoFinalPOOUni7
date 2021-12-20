@@ -1,5 +1,11 @@
 package principal;
 
+import java.util.ArrayList;
+
+import models.Curso;
+import models.Funcionario;
+import models.Professor;
+
 public class MainUtils {
 	public static void menuPrincipal() {
 		System.out.println("1 - Cursos");
@@ -47,5 +53,24 @@ public class MainUtils {
 		System.out.println("4 - Cadastrar Analista de Sistemas");
 		System.out.println("5 - Cadastrar Motorista");
 		System.out.println("0 - Voltar menu principal");
+	}
+	
+	public static int encontraCurso(ArrayList<Curso> cursos, String nome) {
+		int index = 0;
+		for(Curso curso : cursos) {
+			if(curso.getNome() == nome) {
+				index = cursos.indexOf(curso);
+			}
+		}
+		return index;
+	}
+	public static int encontraProfessor(ArrayList<Funcionario> funcionarios, String nome) {
+		int index = 0;
+		for(Funcionario funcionario : funcionarios) {
+			if(funcionario.getNome() == nome) {
+				index = funcionarios.indexOf(funcionario);
+			}
+		}
+		return index;
 	}
 }

@@ -3,17 +3,20 @@ package principal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import models.AnalistaDeSistemas;
-import models.Funcionario;
-import models.Motorista;
-import models.Professor;
-import models.Secretario;
-import models.Tesoureiro;
+import models.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 		ArrayList<Funcionario> funcionarios  = new ArrayList<Funcionario>();
+		ArrayList<Curso> cursos  = new ArrayList<Curso>();
+		ArrayList<Turma> turmas  = new ArrayList<Turma>();
+		ArrayList<TemaAula> temas  = new ArrayList<TemaAula>();
+		ArrayList<Aluno> alunos  = new ArrayList<Aluno>();
+		ArrayList<Aula> aulas  = new ArrayList<Aula>();
+		ArrayList<TurmaDoAluno> turmasDoAluno  = new ArrayList<TurmaDoAluno>();
+		ArrayList<Presenca> presencas  = new ArrayList<Presenca>();
+		
 		boolean status = true;
 		Scanner input = new Scanner(System.in);
 		
@@ -26,10 +29,15 @@ public class Main {
 					opcao = input.nextInt();
 					switch (opcao) {
 						case 1: {
-					
+							for(Curso curso : cursos) {
+								curso.showCurso();
+							}
+							break;
 						}
 						case 2: {
-					
+							String lNome = input.next();
+							cursos.add(new Curso(lNome));
+							break;
 						}
 						default: {
 					
@@ -39,6 +47,29 @@ public class Main {
 				}
 				case 2: {
 					MainUtils.menuTurma();
+					opcao = input.nextInt();
+					switch (opcao) {
+						case 1: {
+							for(Turma turma : turmas) {
+								turma.showTurma();
+							}
+							break;
+						}
+						case 2: {
+							String lNome = input.next();
+							String lCurso = input.next();
+							int idexCurso = MainUtils.encontraCurso(cursos, lCurso);
+							Curso curso = cursos.get(idexCurso);
+							String lProfessor = input.next();
+							int indexProfessor = MainUtils.encontraProfessor(funcionarios, lProfessor);
+							Funcionario professor = funcionarios.get(indexProfessor);
+							turmas.add(new Turma(lNome, professor, curso));
+							break;
+						}
+						default: {
+					
+						}
+					}
 					break;
 				}
 				case 3: {
@@ -139,7 +170,7 @@ public class Main {
 				}
 			}
 		}while(status);
-
+		input.close();
 	}
 
 }

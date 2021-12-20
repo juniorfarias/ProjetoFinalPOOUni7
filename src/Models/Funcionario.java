@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Date;
-
 public abstract class Funcionario {
 	private String nome;
 	private String dataAdmissao;
@@ -14,6 +12,10 @@ public abstract class Funcionario {
 		this.dataAdmissao = dataAdmissao;
 		this.salario = salario;
 		this.dataNascimento = dataNascimento;
+	}
+
+	public Funcionario() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getNome() {
