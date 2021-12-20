@@ -1,15 +1,13 @@
 package models;
 
-import java.util.Date;
-
 public class Aula {
+	private String nome;
 	private Turma turma;
-	private Date dataAula;
-	private Professor professor;
-	public Aula(Turma turma, Date dataAula, Professor professor) {
+	private Funcionario professor;
+	public Aula(String nome, Turma turma, Funcionario professor) {
 		super();
+		this.nome = nome;
 		this.turma = turma;
-		this.dataAula = dataAula;
 		this.professor = professor;
 	}
 	public Turma getTurma() {
@@ -18,17 +16,17 @@ public class Aula {
 	public void setTurma(Turma turma) {
 		this.turma = turma;
 	}
-	public Date getDataAula() {
-		return dataAula;
-	}
-	public void setDataAula(Date dataAula) {
-		this.dataAula = dataAula;
-	}
-	public Professor getProfessor() {
+	public Funcionario getProfessor() {
 		return professor;
 	}
-	public void setProfessor(Professor professor) {
+	public void setProfessor(Funcionario professor) {
 		this.professor = professor;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }

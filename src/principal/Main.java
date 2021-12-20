@@ -40,7 +40,7 @@ public class Main {
 							break;
 						}
 						default: {
-					
+							break;
 						}
 					}
 					break;
@@ -63,7 +63,18 @@ public class Main {
 							String lProfessor = input.next();
 							int indexProfessor = MainUtils.encontraProfessor(funcionarios, lProfessor);
 							Funcionario professor = funcionarios.get(indexProfessor);
-							turmas.add(new Turma(lNome, professor, curso));
+							Turma turma = new Turma(lNome, professor, curso);
+							turmas.add(turma);
+							ArrayList<TemaAula> temasAtivos  = new ArrayList<TemaAula>();
+							for(TemaAula tema : temas) {
+								if(tema.getIsAtivo() && tema.getCurso().getNome() == curso.getNome()) {
+									temasAtivos.add(tema);
+								}
+							}
+							ArrayList<Aula> aulasDaTurma = turma.gerarAulas(temasAtivos, turma, professor);
+							for(Aula aula : aulasDaTurma) {
+								aulas.add(aula);
+							}
 							break;
 						}
 						default: {
@@ -161,7 +172,28 @@ public class Main {
 					break;
 				}
 				case 5: {
-					MainUtils.menuTurma();
+					MainUtils.menuTemasDeAula();
+					opcao = input.nextInt();
+					switch (opcao) {
+						case 1: {
+							for(TemaAula tema : temas) {
+								tema.showTema();
+							}
+							break;
+						}
+						case 2: {
+							String lTema = input.next();
+							boolean isAtivo = input.nextBoolean();
+							String lCurso = input.next();
+							int idexCurso = MainUtils.encontraCurso(cursos, lCurso);
+							Curso curso = cursos.get(idexCurso);
+							temas.add(new TemaAula(lTema, isAtivo, curso));
+							break;
+						}
+						default: {
+							break;
+						}
+					}
 					break;
 				}
 				default: {

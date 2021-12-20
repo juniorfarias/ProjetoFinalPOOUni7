@@ -29,20 +29,20 @@ public class MainUtils {
 	}
 	
 	public static void menuTurma() {
-		System.out.println("1 - Listar funcionário");
-		System.out.println("2 - Cadastrar funcionário");
+		System.out.println("1 - Listar turmas");
+		System.out.println("2 - Cadastrar turma");
 		System.out.println("0 - Voltar menu principal");
 	}
 	
 	public static void menuAluno() {
-		System.out.println("1 - Listar funcionário");
-		System.out.println("2 - Cadastrar funcionário");
+		System.out.println("1 - Listar alunos");
+		System.out.println("2 - Cadastrar aluno");
 		System.out.println("0 - Voltar menu principal");
 	}
 	
 	public static void menuTemasDeAula() {
-		System.out.println("1 - Listar funcionário");
-		System.out.println("2 - Cadastrar funcionário");
+		System.out.println("1 - Listar temas de aula");
+		System.out.println("2 - Cadastrar temas de aula");
 		System.out.println("0 - Voltar menu principal");
 	}
 	

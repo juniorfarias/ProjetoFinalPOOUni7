@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Turma {
 	private String nome;
 	private Funcionario professorResponsavel;
@@ -9,6 +12,8 @@ public class Turma {
 		this.nome = nome;
 		this.professorResponsavel = professor;
 		this.curso = curso;
+		int qtdTurmas = this.curso.getQuantidadeTurmas();
+		this.curso.setQuantidadeTurmas(qtdTurmas++);
 	}
 	public Curso getCurso() {
 		return curso;
@@ -33,4 +38,13 @@ public class Turma {
 		+ " | Curso: " + this.curso.getNome() + " |");
 	}
 	
+	public ArrayList<Aula> gerarAulas(ArrayList<TemaAula> temas, Turma turma, Funcionario professor) {
+		ArrayList<Aula> aulas = new ArrayList<Aula>();
+		int count = 0;
+		for(TemaAula tema : temas) {
+			aulas.add(new Aula("Aula | " + tema.getTemaDeAula() + " | "+ count, turma, professor));
+			count++;
+		}
+		return aulas;
+	}
 }
